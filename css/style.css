@@ -1,0 +1,226 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Paleta de colores */
+:root {
+    --azul-oscuro: #002e5b;
+    --azul-medio: #004080;
+    --azul-claro: #e3f2fd;
+    --acento: #00bcd4;
+    --blanco: #ffffff;
+    --gris-fondo: #f4f4f4;
+    --gris-borde: #dbe2ea;
+    --texto: #222222;
+}
+
+/* Tipografía y base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--texto);
+    font-size: 18px;
+    line-height: 1.75;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+/* Encabezado y pie de página */
+header, footer {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 32px 10px 20px 10px;
+    box-shadow: 0 2px 8px rgba(0,46,91,0.08);
+    user-select: none;
+}
+
+/* Mejor contraste para texto en header */
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    letter-spacing: 1.2px;
+    font-weight: 900;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Menú de navegación */
+nav {
+    background-color: var(--azul-medio);
+    padding: 0;
+    box-shadow: 0 2px 6px rgba(0,64,128,0.04);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+nav ul li:hover,
+nav ul li:focus-within {
+    transform: scale(1.1);
+}
+
+nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 12px 24px;
+    border-radius: 24px;
+    background: rgba(255 255 255 / 0.15);
+    box-shadow: 0 0 8px rgba(255 255 255 / 0.3);
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background: var(--acento);
+    color: var(--azul-oscuro);
+    outline: none;
+    box-shadow: 0 0 14px var(--acento);
+}
+
+/* Contenido principal */
+main {
+    max-width: 900px;
+    margin: 40px auto 48px auto;
+    padding: 32px 28px;
+    background: var(--blanco);
+    border-radius: 20px;
+    box-shadow: 0 6px 24px rgba(0,46,91,0.12);
+}
+
+/* Títulos en blanco con sombra para mejor legibilidad */
+h1, h2 {
+    color: var(--blanco);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* Línea decorativa debajo del título */
+h1::after, h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 5px;
+    background-color: var(--acento);
+    border-radius: 3px;
+}
+
+/* Tamaño y espaciado para h2 */
+h2 {
+    font-size: 1.8rem;
+}
+
+/* Secciones */
+section {
+    margin-bottom: 48px;
+}
+
+/* Listas */
+ul, ol {
+    margin-left: 28px;
+    margin-bottom: 24px;
+    color: var(--azul-oscuro);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+ul li, ol li {
+    margin-bottom: 12px;
+}
+
+/* Párrafos */
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1.1rem;
+    color: var(--texto);
+}
+
+/* Galería de imágenes */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.galeria img {
+    width: 260px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,46,91,0.15);
+    border: 3px solid var(--gris-borde);
+    background: var(--azul-claro);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.galeria img:hover,
+.galeria img:focus {
+    transform: scale(1.07);
+    border-color: var(--acento);
+    outline: none;
+}
+
+/* Footer con texto blanco */
+footer {
+    font-size: 1rem;
+    padding: 24px 10px;
+    margin-top: 40px;
+    background: var(--azul-oscuro);
+    color: var(--blanco);
+    border-top: 4px solid var(--acento);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    main {
+        padding: 20px 16px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+    nav ul li {
+        margin-bottom: 0;
+    }
+    .galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+    .galeria img {
+        width: 90vw;
+        max-width: 340px;
+        height: auto;
+    }
+}
